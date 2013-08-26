@@ -1,6 +1,5 @@
 var tcmPlugin = {
   login: function(user, password, successCallback, errorCallback) {
-    console.log("Inside login from tcm.js");
     cordova.exec(
       successCallback, // success callback function
       errorCallback, // error callback function
@@ -10,7 +9,7 @@ var tcmPlugin = {
         "user": user,
         "password": password,
       }]
-    ); 
+    );
   }
 }
 

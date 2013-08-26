@@ -50,19 +50,8 @@ var app = {
   tcmLogin: function () {
     var user = "v1";
     var password = "v1";
-    var success = function(message) { alert("Success" + message); };
+    var success = function(message) { alert(message); };
     var error = function(message) { alert("Oopsie! " + message); };
     tcmPlugin.login(user,password, success, error);
-  },
-  addToCal: function() {
-    var startDate = new Date("July 19, 2013 8:00:00");
-    var endDate = new Date("July 19, 2013 18:00:00");
-    var notes = "Arrive on time, don't want to miss out (from Android)";
-    var title = "PhoneGap Day";
-    var location = "Portland, OR";
-    var notes = "Arrive on time, don't want to miss out!";
-    var success = function() { alert("Success"); };
-    var error = function(message) { alert("Oopsie! " + message); };
-    calendarPlugin.createEvent(title, location, notes, startDate, endDate, success, error);
   }
 };
