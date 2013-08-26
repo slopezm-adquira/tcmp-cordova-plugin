@@ -1,43 +1,94 @@
 <!DOCTYPE html>
-<!--
-    Licensed to the Apache Software Foundation (ASF) under one
-    or more contributor license agreements.  See the NOTICE file
-    distributed with this work for additional information
-    regarding copyright ownership.  The ASF licenses this file
-    to you under the Apache License, Version 2.0 (the
-    "License"); you may not use this file except in compliance
-    with the License.  You may obtain a copy of the License at
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>TCMP Kiosco</title>
+<meta name="description" content="">
+<meta name="author" content="">
+<meta name="format-detection" content="telephone=no" />
+<meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+<!-- Le styles -->
+<link href="css/bootstrap.css" rel="stylesheet">
+<link href="css/bootstrap-responsive.css" rel="stylesheet">
+<link media="all" rel="stylesheet" href="css/style.css" type="text/css" />
+<link media="all" rel="stylesheet" href="css/index.css" type="text/css" />
+<!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+<!--[if lt IE 9]>
+      <script src="js/html5shiv.js"></script>
+    <![endif]-->
+</head>
 
-    http://www.apache.org/licenses/LICENSE-2.0
-
-    Unless required by applicable law or agreed to in writing,
-    software distributed under the License is distributed on an
-    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
-     KIND, either express or implied.  See the License for the
-    specific language governing permissions and limitations
-    under the License.
--->
-<html>
-    <head>
-        <meta charset="utf-8" />
-        <meta name="format-detection" content="telephone=no" />
-        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
-        <link rel="stylesheet" type="text/css" href="css/index.css" />
-        <title>Hello World</title>
-    </head>
-    <body>
-        <div class="app">
-            <h1>Apache Cordova</h1>
-            <div id="deviceready" class="blink">
-                <p class="event listening">Connecting to Device</p>
-                <p class="event received">Device is Ready</p>
-            </div>
+<body>
+<div class="app">
+  <div id="deviceready">
+    <div class="event listening">
+    Connecting to device
+    </div>
+    <div class="tabbable event received"> 
+      <ul class="nav nav-tabs">
+        <li class="active"><a href="#tab1" data-toggle="tab"><i class="icon-user"></i> Login</a></li>
+        <li><a href="#tab2" data-toggle="tab"><i class="icon-shopping-cart"></i> Pago</a></li>
+        <li><a href="#tab3" data-toggle="tab"><i class="icon-wrench"></i> Configuraci&oacute;n</a></li>
+      </ul>
+      <div class="tab-content">
+        <div class="alert" id="alert-connecting">
+          <strong>Conectando!</strong> Espere por favor
         </div>
-        <script type="text/javascript" src="cordova.js"></script>
-        <script type="text/javascript" src="js/tcm.js"></script>
-        <script type="text/javascript" src="js/index.js"></script>
-        <script type="text/javascript">
-            app.initialize();
-        </script>
-    </body>
+        <div class="alert alert-error" id="alert-wrong">
+          <strong>Error!</strong> Por favor revise la consola
+        </div>
+        <div class="tab-pane active" id="tab1">
+          <div class="container">
+            <form class="form-signin" id="form-login">
+              <h2 class="form-signin-heading">Login</h2>
+              <input type="text" class="input-block-level" placeholder="Usuario" id="txtUser">
+              <input type="password" class="input-block-level" placeholder="Contrase&ntilde;a" id="txtPassword">
+              <button class="btn btn-large btn-primary" type="submit" id="btn-submit" >Conectar</button>
+            </form>
+          </div> <!-- /container -->
+        </div>
+        <div class="tab-pane" id="tab2">
+          <div class="container">
+            <form class="form-signin" id="form-payment">
+              <h2 class="form-signin-heading">Pago EMV</h2>
+              <input type="text" class="input-block-level" placeholder="Monto" id="txtAmount">
+              <input type="text" class="input-block-level" placeholder="Concepto" id="txtConcept">
+              <input type="text" class="input-block-level" placeholder="Order Id" id="txtOrderId">
+              <input type="text" class="input-block-level" placeholder="Servicio" id="txtService">
+              <input type="text" class="input-block-level" placeholder="Token" id="txtToken">
+              <button class="btn btn-large btn-primary" type="submit" id="btn-payment" >Pagar</button>
+            </form>
+          </div> <!-- /container -->
+        </div>
+
+        <div class="tab-pane" id="tab3">
+          <div class="container">
+            <form class="form-signin" id="form-config">
+              <h2 class="form-signin-heading">Configuraci&oacute;n</h2>
+              <label class="control-label" for="txtServer">Server</label>
+              <input type="text" class="input-block-level" id="txtServer" value="http://localhost:8088">
+            </form>
+          </div> <!-- /container -->
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Le javascript
+    ================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="http://code.jquery.com/jquery.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script type="text/javascript" src="cordova.js"></script> 
+
+<script type="text/javascript" src="js/tcm.js"></script>
+<script type="text/javascript" src="js/index.js"></script>
+<script type="text/javascript" src="js/app.js"></script>
+<script type="text/javascript">
+app.initialize();
+</script>
+
+</body>
 </html>
+
+

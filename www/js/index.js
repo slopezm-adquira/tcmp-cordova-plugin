@@ -34,7 +34,7 @@ var app = {
   // function, we must explicity call 'app.receivedEvent(...);'
   onDeviceReady: function() {
     app.receivedEvent('deviceready');
-    app.tcmLogin();
+    //app.tcmLogin();
   },
   // Update DOM on a Received Event
   receivedEvent: function(id) {
@@ -47,11 +47,7 @@ var app = {
 
     console.log('Received Event: ' + id);
   },
-  tcmLogin: function () {
-    var user = "v1";
-    var password = "v1";
-    var success = function(message) { alert(message); };
-    var error = function(message) { alert("Oopsie! " + message); };
-    tcmPlugin.login(user,password, success, error);
+  tcmLogin: function (user, password, successCallback, errorCallback) {
+    tcmPlugin.login(user,password, successCallback, errorCallback);
   }
 };
